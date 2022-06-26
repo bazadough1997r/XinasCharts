@@ -67,7 +67,6 @@ export default class MainLogic extends Component {
         }
       );
     }
-
     if (this.state.newArrowRef !== "") {
       if (this.state.previousShape) {
         if (this.state.previousShape.attrs.id !== "ContainerRect") {
@@ -1073,9 +1072,9 @@ export default class MainLogic extends Component {
             style={{
               display: this.state.textEditVisible ? "block" : "none",
               position: "absolute",
-              top: this.state.textY + "px",
-              left: this.state.textX + "px",
-              width: "300px",
+              top: "100px",
+              left: "800px",
+              width: "800px",
               height: "300px",
               overflow: "hidden",
               fontSize: this.state.textareaFontSize,

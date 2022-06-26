@@ -28,9 +28,10 @@ export default class Transformers extends Component {
     }
     this.transformer.getLayer().batchDraw();
   }
+  
   render() {
     if (this.props.selectedShapeName.includes("text")) {
-      var stuff = (
+      var transformerRule = (
         <Transformer
           ref={(node) => {
             this.transformer = node;
@@ -44,7 +45,7 @@ export default class Transformers extends Component {
         />
       );
     } else if (this.props.selectedShapeName.includes("star")) {
-      stuff = (
+      transformerRule = (
         <Transformer
           ref={(node) => {
             this.transformer = node;
@@ -59,7 +60,7 @@ export default class Transformers extends Component {
         />
       );
     } else if (this.props.selectedShapeName.includes("arrow")) {
-      stuff = (
+      transformerRule = (
         <Transformer
           ref={(node) => {
             this.transformer = node;
@@ -70,7 +71,7 @@ export default class Transformers extends Component {
         />
       );
     } else {
-      stuff = (
+      transformerRule = (
         <Transformer
           ref={(node) => {
             this.transformer = node;
@@ -80,6 +81,6 @@ export default class Transformers extends Component {
         />
       );
     }
-    return stuff;
+    return transformerRule;
   }
 }
