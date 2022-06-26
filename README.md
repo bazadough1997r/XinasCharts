@@ -1,6 +1,7 @@
 # Xina's Charts
 
 Your favorite site for making charts!
+Try it here https://xinascharts.netlify.app/
 
 #### How to run this app locally
 
