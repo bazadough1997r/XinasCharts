@@ -70,11 +70,11 @@ export default class MainLogic extends Component {
     if (this.state.newArrowRef !== "") {
       if (this.state.previousShape) {
         if (this.state.previousShape.attrs.id !== "ContainerRect") {
-          this.state.arrows.map((eachArrow) => {
-            if (eachArrow.name === this.state.newArrowRef) {
-              eachArrow.to = this.state.previousShape;
-            }
-          });
+          this.state.arrows.map((eachArrow) =>
+            eachArrow.name === this.state.newArrowRef
+              ? (eachArrow.to = this.state.previousShape)
+              : null
+          );
         }
       }
       this.state.arrows.map((eachArrow) => {
@@ -82,6 +82,7 @@ export default class MainLogic extends Component {
           eachArrow.fill = "black";
           eachArrow.stroke = "black";
         }
+        return null;
       });
       this.setState({
         arrowDraggable: false,
@@ -113,6 +114,7 @@ export default class MainLogic extends Component {
                     eachArrow.fill = "black";
                     eachArrow.stroke = "black";
                   }
+                  return null
                 });
                 this.forceUpdate();
               } else {
@@ -121,6 +123,7 @@ export default class MainLogic extends Component {
                     eachArrow.fill = "#ccf5ff";
                     eachArrow.stroke = "#ccf5ff";
                   }
+                  return null
                 });
                 this.forceUpdate();
               }
@@ -142,8 +145,9 @@ export default class MainLogic extends Component {
           pos.x,
           pos.y,
         ];
-        this.state.arrows[index] = currentArrow;
+        currentArrow = this.state.arrows[index];
       }
+      return null
     });
   };
 
@@ -275,21 +279,25 @@ export default class MainLogic extends Component {
       if (eachRect.name === currentShapeName) {
         toReturn = false;
       }
+      return null;
     });
     ellipses.map((eachEllipse) => {
       if (eachEllipse.name === currentShapeName) {
         toReturn = false;
       }
+      return null;
     });
     arrows.map((eachArrow) => {
       if (eachArrow.name === currentShapeName) {
         toReturn = false;
       }
+      return null;
     });
     texts.map((eachText) => {
       if (eachText.name === currentShapeName) {
         toReturn = false;
       }
+      return null;
     });
     return toReturn;
   };
@@ -465,6 +473,7 @@ export default class MainLogic extends Component {
                   this.forceUpdate();
                 }
               }
+              return null;
             });
           }}
           onDragEnd={(event) => {
@@ -577,6 +586,7 @@ export default class MainLogic extends Component {
                 this.graphicStage.draw();
               }
             }
+            return null;
           });
         }}
         onDragEnd={(event) => {
@@ -675,6 +685,7 @@ export default class MainLogic extends Component {
                 this.forceUpdate();
               }
             }
+            return null;
           });
         }}
         onDragEnd={(event) => {
@@ -782,6 +793,7 @@ export default class MainLogic extends Component {
           />
         );
       }
+      return null;
     });
 
   transformers = () =>
